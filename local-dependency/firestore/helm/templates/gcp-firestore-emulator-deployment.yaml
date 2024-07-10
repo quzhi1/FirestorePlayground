@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gcp-firestore-emulator
+spec:
+  selector:
+    matchLabels:
+      app: gcp-firestore-emulator
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: gcp-firestore-emulator
+    spec:
+      containers:
+        - name: gcp-firestore-emulator
+          image: google/cloud-sdk:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8081
+          command: ["gcloud"]
+          args: ["beta", "emulators", "firestore", "start", "--host-port=0.0.0.0:8081"]
+          resources: {}

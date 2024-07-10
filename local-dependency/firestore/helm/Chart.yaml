@@ -1,0 +1,6 @@
+apiVersion: v2
+name: gcp-firestore-emulator
+description: A Helm chart for GCP Firestore Emulator
+type: application
+version: 1.0.0
+appVersion: 1.0.0
